@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full bg-gray-100"lang="en">
+<html class="h-full bg-zinc-100"lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -18,20 +18,20 @@
 <body class="h-full">
     <div class="min-h-full">
 
-    <x-navbar />
+        <x-navbar />
 
-    @isset($heading)
-        <header class="bg-white shadow">
+        @isset($heading)
+            <header class="bg-white shadow">
+                <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                    <h1 class="text-3xl font-bold tracking-tight text-zinc-900">{{ $heading }}</h1>
+                </div>
+            </header>
+        @endisset
+        <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
+                {{ $slot }}
             </div>
-        </header>
-    @endisset
-    <main>
-        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            {{ $slot }}
-        </div>
-    </main>
+        </main>
     </div>
 
 </body>
