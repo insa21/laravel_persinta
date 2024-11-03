@@ -1,19 +1,25 @@
-<nav class="bg-gray-800">
+<nav class="bg-zinc-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img class="h-8 w-8" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+                        alt="Your Company">
+                </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <x-navbar.link href="/">Home</x-navbar.link>
                         <x-navbar.link href="/about">About</x-navbar.link>
                         <x-navbar.link href="/contact">Contact</x-navbar.link>
                         <x-navbar.link href="/gallery">Gallery</x-navbar.link>
+                        <x-navbar.link href="/users">Users</x-navbar.link>
                     </div>
                 </div>
             </div>
             <div class="-mr-2 flex md:hidden">
                 <button type="button"
-                    class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    class="relative inline-flex items-center justify-center rounded-md bg-zinc-800 p-2 text-zinc-400 hover:bg-zinc-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-zinc-800"
                     aria-controls="mobile-menu" aria-expanded="false">
                     <span class="absolute -inset-0.5"></span>
                     <span class="sr-only">Open main menu</span>
