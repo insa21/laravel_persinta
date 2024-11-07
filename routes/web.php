@@ -14,13 +14,16 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
 
-Route::get('/users', [UserController::class, 'index']);
-Route::get('/users/create', [UserController::class, 'create']);
-Route::post('/users', [UserController::class, 'store']);
-Route::get('/users/{user:id}', [UserController::class, 'show']);
-Route::get('/users/{user:id}/edit', [UserController::class, 'edit']);
-Route::put('/users/{user:id}', [UserController::class, 'update']);
-Route::delete('/users/{user:id}', [UserController::class, 'destroy']);
+//Cara Cepat tanpa harus mendefinisikan satu per satu
+Route::resource('users', UserController::class);
+
+//Route::get('/users', [UserController::class, 'index'])->name('users.index');
+//Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+//Route::post('/users', [UserController::class, 'store'])->name('users.store');
+//Route::get('/users/{user:id}', [UserController::class, 'show'])->name('users.show');
+//Route::get('/users/{user:id}/edit', [UserController::class, 'edit'])->name('users.edit');
+//Route::put('/users/{user:id}', [UserController::class, 'update'])->name('users.update');
+//Route::delete('/users/{user:id}', [UserController::class, 'destroy'])->name('users.destroy');
 
 
 
