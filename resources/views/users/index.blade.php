@@ -33,12 +33,12 @@
                         <x-table.td>{{ $user->created_at->format('d M Y') }}</x-table.td>
                         <x-table.td>
                             <div class="flex justify-end gap-x-2">
-                                <a href="/users/{{$user->id}}" class="hover:underline">
+                                <a href="/users/{{ $user->id }}" class="hover:underline">
                                     view
                                 </a>
-                            <a href="/users/{{$user->id}}/edit" class="hover:underline">
-                                Edit
-                            </a>
+                                <a href="/users/{{ $user->id }}/edit" class="hover:underline">
+                                    Edit
+                                </a>
                             </div>
                         </x-table.td>
                     </tr>

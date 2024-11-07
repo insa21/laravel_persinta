@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\UserRequest;  // Assuming UserRequest is in the App\Http\Requests namespace
+
 
 class UserController extends Controller
 {
@@ -15,33 +16,32 @@ class UserController extends Controller
         return view('users.index', ['users' => $users]);
     }
 
+    public function store(userRequest $request)
+    {
+        User::create($request->validated());
+
+        return redirect('/users');
+    }
 
     public function create()
     {
         return view('users.form', [
-            'user'=>new User(),
+            'user' => new User(),
             'page_meta' => [
                 'title' => 'Create new User',
                 'method' => 'POST',
                 'url' => '/users',
                 'submit_text' => 'Create'
-        ],
+            ],
         ]);
     }
 
-    public function store(Request $request)
-    {
-        User::create($request->validate(this->requestValidated()));
-
-        return redirect('/users');
-    }
 
     public function show(User $user)
     {
-//        $user = User::findOrFail($id);
-        return view('users/show', ['user'=>$user]);
+        //        $user = User::findOrFail($id);
+        return view('users/show', ['user' => $user]);
     }
-
 
     public function edit(User $user)
     {
@@ -56,28 +56,15 @@ class UserController extends Controller
         ]);
     }
 
-
-    public function update(Request $request, User $user)
+    public function update(userRequest $request, User $user)
     {
-        $user->update($request->validate($this->requestValidated()));
+        $user->update($request->validated());
         return redirect('/users');
     }
 
-    protected function requestValidated()
-    {
-        return [
-            'name' => ['required', 'min:3', 'max:255', 'string'],
-            'email' => ['required', 'email'],
-            'password' => ['required', 'min:8', 'max:255'],
-        ];
-    }
-
+    public function destroy(User $user)
+        {
+            $user->delete();
+            return redirect('/users');
+        }
 }
-
-
-
-
-
-
-
-
